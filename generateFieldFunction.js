@@ -16,7 +16,7 @@ generateField=(height, width)=>{
         fullField.push(fieldRow)
         fieldRow = []
     }
-    fullField[ Math.floor(Math.random() * height)][ Math.floor(Math.random(width - 1 + 1) * 1)] = hat
+    fullField[ Math.floor(Math.random() * height)][ Math.floor(Math.random()*width)] = hat
     fullField[0][0] = pathCharacter
     return fullField
 }
