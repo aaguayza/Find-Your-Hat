@@ -22,33 +22,35 @@ class Field {
 }
 //Direction Controls
 const myField = new Field()
-myField.generateNewField(10,10)
+myField.generateNewField(5,10)
 myField.print()
 
-
-//maybe turn to switch statement?  Have one for r,l,d
-//Need to make sure that there is something to check for whether or not the x/y variables go negative OR past their max width/height.  should say "you hit a wall"
 const pathCharacter = '*';
 const hat = '^';
+const hole = 'O';
 let x = 0
 let y = 0
+let playerLocation =   myField.playField
 const directionInput = (input) =>{//the argument is coming from the game promput function
     if (input === 'r'){
-        x++
-        myField.playField [y][x]= pathCharacter
-        myField.print()
+      x++
     }else if(input === 'd'){
       y++
-        myField.playField [y][x]= pathCharacter
-        myField.print()
     }else if(input === 'l'){
-      x--
-      myField.playField [y][x]= pathCharacter
-      myField.print()
+        x--
+    }else if(input === 'u'){
+      y--
     }
+    if(playerLocation[y][x] === hat){
+      console.log('You found your hat!')
+    }else if(playerLocation[y][x] === hole){
+      console.log('You fell into a hole!')
+    }else{
+      playerLocation[y][x] = pathCharacter
+    }
+    myField.print() 
 }
-//this checks for the hat being next to the field character you are on!
-while(myField.playField[y][x+1] !== hat && myField.playField[y+1][x] !== hat && myField.playField[y][x-1] !== hat){
+
+while(playerLocation [y][x] !== hat && playerLocation [y] [x] !== hole){
   directionInput(gamePrompt())
 }
-console.log('you found the hat!')

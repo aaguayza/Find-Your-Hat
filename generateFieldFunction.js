@@ -4,7 +4,7 @@ const hat = '^';
 const hole = 'O';
 const fieldCharacter = '░';
 const pathCharacter = '*';
-const allCharacters = [hole, fieldCharacter,fieldCharacter,fieldCharacter]
+const allCharacters = [hole, fieldCharacter,fieldCharacter,fieldCharacter,fieldCharacter]
 
 generateField=(height, width)=>{
     let fullField = []
